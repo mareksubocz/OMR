@@ -1,0 +1,37 @@
+.root {
+    height: 100vh;
+    background-color: lightgrey;
+    padding: 50pt;
+  }
+
+.image {
+    background-image: url('https://source.unsplash.com/random');
+    background-repeat: no-repeat;
+      /* theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900], */
+    background-size: cover;
+    background-position: center;
+    margin-left: 20pt;
+  }
+.pole {
+    /* margin: spacing(8, 4); */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px
+}
+
+.submit {
+    margin: 20px
+}
+.metrum {
+    /* position: relative; */
+    margin-top: 50pt;
+    margin-left: 100pt;
+    margin-right: 100pt;
+    font-size: 5ex;
+    /* display: inline; */
+    /* margin: auto */
+}
+.liczba {
+    width: 20pt;
+}
