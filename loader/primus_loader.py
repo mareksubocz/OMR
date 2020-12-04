@@ -37,7 +37,7 @@ class DatasetLoader(Sequence):
         return np.array(x), np.array(y)
 
     def on_epoch_end(self) -> None:
-        self.indexes = np.arange(self.loader.get_data_len(self.split_name))
+        self.indexes = np.arange(len(self.dataset))
 
         if self.shuffle:
             np.random.shuffle(self.indexes)
