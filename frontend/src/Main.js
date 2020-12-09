@@ -8,13 +8,18 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import Box from '@material-ui/core/Box';
 
+function handleButton(file){
+    alert('siema')
+    alert(file)
+}
 function Main(){
+    var array = [];
     return (
     <Grid container component="main" className="root">
         <CssBaseline/>
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} >
+        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} class="paper">
             <div className="pole">
-                <DropzoneAreaExample/>
+                <DropzoneAreaExample files={array}/>
             </div>
             <div className="metrum">
                 <Grid container>
@@ -37,12 +42,13 @@ function Main(){
                 fullWidth
                 variant="contained"
                 color="primary"
+                onClick={() => { handleButton(array) }}
             >
                 Analyze
             </Button>
             </div>
         </Grid>
-        <Grid item xs={false} sm={4} md={7} className="image" />
+        <Grid item xs={false} sm={4} md={7}/>
     </Grid>
 
 

@@ -25,12 +25,13 @@ cropping = False
 color = (0,255,0)
 data_gathered = []
 # available: rectangle, dot
-sequence = ["rectangle", "dot", "rectangle"]
+sequence = ["rectangle", "dot"]
 sequence_step = 0
 current_label = ""
+pre_rectangle_img = []
 
 def handle_mouse(event, x, y, flags, param):
-    global sequence_step, sequence
+    global sequence_step, sequence, pre_rectangle_img
     global stepPt, seqPt, cropping, color
     if event == mousebindings['startstep']:
         if sequence[sequence_step] == 'rectangle':
@@ -64,11 +65,11 @@ def handle_mouse(event, x, y, flags, param):
 # to use colors by names run: pip install webcolors
 keybindings = {
 # 'key': ['label', [RGB color]]
-    'f': ['quarter','black'],
-    'd': ['half','red'],
-    's': ['full','green'],
-    'a': ['eighth','navy'],
-    'B': ['Domi', [0,0,255]],
+    'f': ['quarter','yellow'],
+    'd': ['half','tomato'],
+    's': ['full','lightgreen'],
+    'a': ['eighth','darkturquoise'],
+    'b': ['back', 'hotpink'],
     'R': reset,
     'S': save,
     'Q': quit,

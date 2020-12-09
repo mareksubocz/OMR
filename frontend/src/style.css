@@ -2,26 +2,32 @@
     height: 100vh;
     background-color: lightgrey;
     padding: 50pt;
-  }
-
-.image {
     background-image: url('https://source.unsplash.com/random');
     background-repeat: no-repeat;
       /* theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900], */
     background-size: cover;
     background-position: center;
-    margin-left: 20pt;
+    /* margin-left: 20pt; */
   }
+
+/* .image { */
+/*   } */
 .pole {
     /* margin: spacing(8, 4); */
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 50px
+    margin: 50px;
+}
+.paper {
+    border-radius: 50pt;
+    background-color: white;
+    height: max-content;
+    justify-content: center;
 }
 
 .submit {
-    margin: 20px
+    margin: 40px
 }
 .metrum {
     /* position: relative; */

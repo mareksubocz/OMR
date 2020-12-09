@@ -12,6 +12,7 @@ class DropzoneAreaExample extends Component{
     this.setState({
       files: files
     });
+      // alert(files);
   }
   render(){
     return (
