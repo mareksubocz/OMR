@@ -17,27 +17,28 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 50px;
+    margin: 50px
 }
 .paper {
     border-radius: 50pt;
     background-color: white;
     height: max-content;
+    /* min-width: 500; */
     justify-content: center;
 }
 
 .submit {
     margin: 40px
 }
-.metrum {
-    /* position: relative; */
-    margin-top: 50pt;
-    margin-left: 100pt;
-    margin-right: 100pt;
-    font-size: 5ex;
-    /* display: inline; */
-    /* margin: auto */
-}
+/* .metrum { */
+/*     /1* position: relative; *1/ */
+/*     margin-top: 50pt; */
+/*     margin-left: 100pt; */
+/*     margin-right: 100pt; */
+/*     font-size: 5ex; */
+/*     /1* display: inline; *1/ */
+/*     /1* margin: auto *1/ */
+/* } */
 .liczba {
     width: 20pt;
 }

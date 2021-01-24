@@ -8,17 +8,15 @@ class DropzoneAreaExample extends Component{
       files: []
     };
   }
-  handleChange(files){
-    this.setState({
-      files: files
-    });
-      // alert(files);
-  }
+
+
   render(){
     return (
-      <DropzoneArea
-        onChange={this.handleChange.bind(this)}
-        acceptedFiles={['image/jpeg', 'image/png', 'image/bmp']}
+        <DropzoneArea
+            // onChange={this.props.handleChange(this.state.files)}
+            onDrop={this.props.handleChange}
+            acceptedFiles={['image/jpeg', 'image/png', 'image/bmp']}
+            filesLimit={1}
         />
     )
   }
