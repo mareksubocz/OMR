@@ -45,7 +45,6 @@ function Main(){
         </Grid>
         <Grid item xs={false} sm={4} md={7}/>
     </Grid>
-
     );
 }
  
