@@ -7,6 +7,8 @@ import Loader from 'react-loader-spinner'
 import SplitPane from 'react-split-pane';
 import XMLLogo from './img/MusicXMLlogo.png'
 import MIDILogo from './img/MIDILogo.png'
+// import MXLFile from './data/result.mxl'
+// import MIDIFile from './data/result.mid'
 import axios from 'axios'
 
 
@@ -14,25 +16,34 @@ function Main(){
     var [image, setImage] = useState();
     var [loading, setLoading] = useState(false);
     var [ready, setReady] = useState(false);
+    var [MIDIFile, setMIDIFile] = useState();
+    var [MXLFile, setMXLFile] = useState();
 
     function handleButton(){
         if(image === undefined || !image.length){
-            alert("Please provide an image first!")
+            alert("Please upload an image first!")
             return
         }
-        // TODO: Rzucamy POST
+
+        //POST request to analyze the photo
+        let fd = new FormData()
+        fd.append('file', image[0])
+        let config = {
+            headers: {
+                "Content-Type": "image/*",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+
         setLoading(true)
         setReady(false)
-        // TODO: Ładujemy GET
-        setLoading(false)
-        setReady(true)
-    }
-
-    function handleDropzoneChange(file){
-        setImage(file)
-    }
-    function handleDropzoneDelete(){
-        setImage(undefined)
+        axios.post('http://127.0.0.1:5000/predict', fd, config)
+            .then((response) => {
+                setMXLFile(response.data[0])
+                setMIDIFile(response.data[1])
+                setLoading(false)
+                setReady(true)
+            })
     }
 
     return (
@@ -42,8 +53,8 @@ function Main(){
                 <div className="lewa">
                     <Paper className="paper" elevation={3} square={true}>
                         <DropzoneAreaExample 
-                            handleDelete={handleDropzoneDelete} 
-                            handleChange={handleDropzoneChange}
+                            onDelete={setImage} 
+                            onDrop={setImage}
                         />
                         <div className="submit">
                             <Button
@@ -51,6 +62,7 @@ function Main(){
                                 fullWidth
                                 variant="contained"
                                 color="primary"
+                                disabled={loading}
                                 onClick={() => { handleButton() }}
                             >
                                 Analyze
@@ -67,27 +79,25 @@ function Main(){
                         height="100"
                         className="loader"
                     />
-                    <div className="przyciski">
-                        <a download href="./data/Carol_of_the_Bells.mxl">
-                            <Button>
-                                <div style={{display: ready ? 'flex': 'none'}} 
-                                    className="downloadButton"
-                                >
-                                    <img src={XMLLogo} alt="logo" className="logo"/>
-                                    DOWNLOAD MusicXML
-                                </div>
-                            </Button>
-                        </a>
-                        <a download href="./data/Carol_of_the_Bells.mid">
-                            <Button>
-                                <div style={{display: ready ? 'flex': 'none'}} 
-                                    className="downloadButton"
-                                >
-                                    <img src={MIDILogo} alt="logo" className="logo"/>
-                                    DOWNLOAD MIDI
-                                </div>
-                            </Button>
-                        </a>
+                    <div className="przyciski" style={{display: ready ? 'flex': 'none'}}>
+                        <Paper className="przyciskiPaper" style={{backgroundColor: "rgba(255, 255, 255, 0.9)"}} elevation={3} square={true}>
+                            <a download="result.mxl" href={MXLFile}>
+                                <Button>
+                                    <div className="downloadButton" >
+                                        <img src={XMLLogo} alt="logo" className="logo"/>
+                                        DOWNLOAD MusicXML
+                                    </div>
+                                </Button>
+                            </a>
+                            <a download="result.mid" href={MIDIFile}>
+                                <Button>
+                                    <div className="downloadButton">
+                                        <img src={MIDILogo} alt="logo" className="logo"/>
+                                        DOWNLOAD MIDI
+                                    </div>
+                                </Button>
+                            </a>
+                        </Paper> 
                     </div>
                 </div>
             </SplitPane>

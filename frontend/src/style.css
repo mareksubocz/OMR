@@ -4,6 +4,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    background-color: lightblue;
   }
 .splitpane{
     align-items: center;
@@ -25,13 +26,18 @@
     padding: 40;
     border-radius: 50pt;
 }
+.przyciskiPaper {
+    padding: 20;
+    border-radius: 40pt;
+    min-width: 290pt;
+}
 
 .submit {
     margin-top: 50px
 }
 
 .downloadButton {
-    color: white;
+    color: black;
     font-size: 1.5em;
     display: flex;
     align-items: center;
