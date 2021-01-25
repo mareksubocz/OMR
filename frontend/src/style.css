@@ -1,44 +1,48 @@
 .root {
-    height: 100vh;
-    background-color: lightgrey;
-    padding: 50pt;
+    height: 100%;
     background-image: url('https://source.unsplash.com/random');
     background-repeat: no-repeat;
-      /* theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900], */
     background-size: cover;
     background-position: center;
-    /* margin-left: 20pt; */
   }
-
-/* .image { */
-/*   } */
-.pole {
-    /* margin: spacing(8, 4); */
-    display: flex;
-    flex-direction: column;
+.splitpane{
     align-items: center;
-    margin: 50px
+}
+.lewa{
+    margin-bottom: 20%;
+    margin-left: 17%;
+    margin-right: 17%;
+}
+.prawa{
+    display: flex;
+    justify-content: center;
+}
+.przyciski {
+    display: block;
+    max-width: 350px;
 }
 .paper {
+    padding: 40;
     border-radius: 50pt;
-    background-color: white;
-    height: max-content;
-    /* min-width: 500; */
-    justify-content: center;
 }
 
 .submit {
-    margin: 40px
+    margin-top: 50px
 }
-/* .metrum { */
-/*     /1* position: relative; *1/ */
-/*     margin-top: 50pt; */
-/*     margin-left: 100pt; */
-/*     margin-right: 100pt; */
-/*     font-size: 5ex; */
-/*     /1* display: inline; *1/ */
-/*     /1* margin: auto *1/ */
-/* } */
-.liczba {
-    width: 20pt;
+
+.downloadButton {
+    color: white;
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+}
+.logo {
+    margin-right: 10pt;
+}
+.loader {
+    width: fit-content;
+}
+a {
+    color: inherit;
+    text-decoration: none;
 }

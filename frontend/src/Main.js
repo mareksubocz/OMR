@@ -1,50 +1,97 @@
 import React, {useState} from "react";
 import DropzoneAreaExample from './DropzoneAreaExample';
-// import DropzoneDialogExample from './DropzoneDialogExample';
 import Button from '@material-ui/core/Button';
-import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import CssBaseline from '@material-ui/core/CssBaseline';
-// import TextField from '@material-ui/core/TextField';
-// import Box from '@material-ui/core/Box';
+import Loader from 'react-loader-spinner'
+import SplitPane from 'react-split-pane';
+import XMLLogo from './img/MusicXMLlogo.png'
+import MIDILogo from './img/MIDILogo.png'
 import axios from 'axios'
-
 
 
 function Main(){
     var [image, setImage] = useState();
+    var [loading, setLoading] = useState(false);
+    var [ready, setReady] = useState(false);
 
     function handleButton(){
-        alert(image[0])
-        axios.post('localhost:5000', image[0])
+        if(image === undefined || !image.length){
+            alert("Please provide an image first!")
+            return
+        }
+        // TODO: Rzucamy POST
+        setLoading(true)
+        setReady(false)
+        // TODO: Ładujemy GET
+        setLoading(false)
+        setReady(true)
     }
 
     function handleDropzoneChange(file){
         setImage(file)
-        alert(image)
+    }
+    function handleDropzoneDelete(){
+        setImage(undefined)
     }
 
     return (
-    <Grid container component="main" className="root">
-        <CssBaseline/>
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} class="paper">
-            <div className="pole">
-                <DropzoneAreaExample handleChange={handleDropzoneChange}/>
-            </div>
-            <div className="submit">
-            <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                color="primary"
-                onClick={() => { handleButton() }}
-            >
-                Analyze
-            </Button>
-            </div>
-        </Grid>
-        <Grid item xs={false} sm={4} md={7}/>
-    </Grid>
+        <div className="root">
+            <CssBaseline/>
+            <SplitPane split="vertical" minSize="50%" className="splitpane">
+                <div className="lewa">
+                    <Paper className="paper" elevation={3} square={true}>
+                        <DropzoneAreaExample 
+                            handleDelete={handleDropzoneDelete} 
+                            handleChange={handleDropzoneChange}
+                        />
+                        <div className="submit">
+                            <Button
+                                type="submit"
+                                fullWidth
+                                variant="contained"
+                                color="primary"
+                                onClick={() => { handleButton() }}
+                            >
+                                Analyze
+                            </Button>
+                        </div>
+                    </Paper>
+                </div>
+                <div className="prawa">
+                    <Loader 
+                        style={{display: loading ? '': 'none'}}
+                        type="TailSpin" 
+                        color="white" 
+                        width="100"
+                        height="100"
+                        className="loader"
+                    />
+                    <div className="przyciski">
+                        <a download href="./data/Carol_of_the_Bells.mxl">
+                            <Button>
+                                <div style={{display: ready ? 'flex': 'none'}} 
+                                    className="downloadButton"
+                                >
+                                    <img src={XMLLogo} alt="logo" className="logo"/>
+                                    DOWNLOAD MusicXML
+                                </div>
+                            </Button>
+                        </a>
+                        <a download href="./data/Carol_of_the_Bells.mid">
+                            <Button>
+                                <div style={{display: ready ? 'flex': 'none'}} 
+                                    className="downloadButton"
+                                >
+                                    <img src={MIDILogo} alt="logo" className="logo"/>
+                                    DOWNLOAD MIDI
+                                </div>
+                            </Button>
+                        </a>
+                    </div>
+                </div>
+            </SplitPane>
+        </div>
     );
 }
  

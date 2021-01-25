@@ -15,8 +15,10 @@ class DropzoneAreaExample extends Component{
         <DropzoneArea
             // onChange={this.props.handleChange(this.state.files)}
             onDrop={this.props.handleChange}
+            onDelete={this.props.handleDelete}
             acceptedFiles={['image/jpeg', 'image/png', 'image/bmp']}
             filesLimit={1}
+            maxFileSize={10 * 1024 * 1024}
         />
     )
   }
