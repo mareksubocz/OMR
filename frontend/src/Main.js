@@ -16,8 +16,6 @@ function Main(){
     var [image, setImage] = useState();
     var [loading, setLoading] = useState(false);
     var [ready, setReady] = useState(false);
-    // var [MIDIFile, setMIDIFile] = useState();
-    // var [MXLFile, setMXLFile] = useState();
     var [id, setId] = useState();
 
     function handleButton(){
@@ -40,10 +38,6 @@ function Main(){
         setReady(false)
         axios.post('http://127.0.0.1:5000/predict', fd, config)
             .then((response) => {
-                // setMXLFile(response.data[0])
-                // setMIDIFile(response.data[1])
-                alert(response)
-                console.log(response.data)
                 setId(response.data["id"])
                 setLoading(false)
                 setReady(true)
