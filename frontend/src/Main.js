@@ -87,7 +87,7 @@ function Main(){
                                     </div>
                                 </Button>
                             </a>
-                            <a download="result.mid" href={`http://127.0.0.1:5000/mid/${id}`}>
+                            <a download="result.mid" href={`http://127.0.0.1:5000/midi/${id}`}>
                                 <Button>
                                     <div className="downloadButton">
                                         <img src={MIDILogo} alt="logo" className="logo"/>
