@@ -1,6 +1,6 @@
 .root {
     height: 100%;
-    background-image: url('https://source.unsplash.com/random');
+    background-image: url('./img/background.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -30,10 +30,10 @@
     padding: 20;
     border-radius: 40pt;
     min-width: 290pt;
-}
 
+}
 .submit {
-    margin-top: 50px
+    margin-top: 50px;
 }
 
 .downloadButton {
@@ -41,6 +41,7 @@
     font-size: 1.5em;
     display: flex;
     align-items: center;
+    text-transform: none;
 }
 .logo {
     margin-right: 10pt;

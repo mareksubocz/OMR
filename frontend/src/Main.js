@@ -34,8 +34,8 @@ function Main(){
             }
         }
 
-        setLoading(true)
-        setReady(false)
+        setLoading(false)
+        setReady(true)
         axios.post('http://127.0.0.1:5000/predict', fd, config)
             .then((response) => {
                 setId(response.data["id"])
@@ -83,7 +83,7 @@ function Main(){
                                 <Button>
                                     <div className="downloadButton" >
                                         <img src={XMLLogo} alt="logo" className="logo"/>
-                                        DOWNLOAD MusicXML
+                                        Download MusicXML
                                     </div>
                                 </Button>
                             </a>
@@ -91,7 +91,7 @@ function Main(){
                                 <Button>
                                     <div className="downloadButton">
                                         <img src={MIDILogo} alt="logo" className="logo"/>
-                                        DOWNLOAD MIDI
+                                        Download MIDI
                                     </div>
                                 </Button>
                             </a>
