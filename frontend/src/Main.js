@@ -78,7 +78,7 @@ function Main(){
                         className="loader"
                     />
                     <div className="przyciski" style={{display: ready ? 'flex': 'none'}}>
-                        <Paper className="przyciskiPaper" style={{backgroundColor: "rgba(255, 255, 255, 0.9)"}} elevation={3} square={true}>
+                        <Paper className="przyciskiPaper" style={{backgroundColor: "rgba(255, 255, 255, 0.5)"}} elevation={3} square={true}>
                             <a download="result.mxl" href={`http://127.0.0.1:5000/mxl/${id}`}>
                                 <Button>
                                     <div className="downloadButton" >
