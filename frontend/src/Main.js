@@ -16,8 +16,9 @@ function Main(){
     var [image, setImage] = useState();
     var [loading, setLoading] = useState(false);
     var [ready, setReady] = useState(false);
-    var [MIDIFile, setMIDIFile] = useState();
-    var [MXLFile, setMXLFile] = useState();
+    // var [MIDIFile, setMIDIFile] = useState();
+    // var [MXLFile, setMXLFile] = useState();
+    var [id, setId] = useState();
 
     function handleButton(){
         if(image === undefined || !image.length){
@@ -39,8 +40,11 @@ function Main(){
         setReady(false)
         axios.post('http://127.0.0.1:5000/predict', fd, config)
             .then((response) => {
-                setMXLFile(response.data[0])
-                setMIDIFile(response.data[1])
+                // setMXLFile(response.data[0])
+                // setMIDIFile(response.data[1])
+                alert(response)
+                console.log(response.data)
+                setId(response.data["id"])
                 setLoading(false)
                 setReady(true)
             })
@@ -81,7 +85,7 @@ function Main(){
                     />
                     <div className="przyciski" style={{display: ready ? 'flex': 'none'}}>
                         <Paper className="przyciskiPaper" style={{backgroundColor: "rgba(255, 255, 255, 0.9)"}} elevation={3} square={true}>
-                            <a download="result.mxl" href={MXLFile}>
+                            <a download="result.mxl" href={`http://127.0.0.1:5000/mxl/${id}`}>
                                 <Button>
                                     <div className="downloadButton" >
                                         <img src={XMLLogo} alt="logo" className="logo"/>
@@ -89,7 +93,7 @@ function Main(){
                                     </div>
                                 </Button>
                             </a>
-                            <a download="result.mid" href={MIDIFile}>
+                            <a download="result.mid" href={`http://127.0.0.1:5000/mid/${id}`}>
                                 <Button>
                                     <div className="downloadButton">
                                         <img src={MIDILogo} alt="logo" className="logo"/>
