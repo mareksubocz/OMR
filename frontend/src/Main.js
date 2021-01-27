@@ -34,8 +34,8 @@ function Main(){
             }
         }
 
-        setLoading(false)
-        setReady(true)
+        setLoading(true)
+        setReady(false)
         axios.post('http://127.0.0.1:5000/predict', fd, config)
             .then((response) => {
                 setId(response.data["id"])
@@ -50,8 +50,8 @@ function Main(){
             <SplitPane split="vertical" minSize="50%" className="splitpane">
                 <div className="lewa">
                     <Paper className="paper" elevation={3} square={true}>
-                        <DropzoneAreaExample 
-                            onDelete={setImage} 
+                        <DropzoneAreaExample
+                            onDelete={setImage}
                             onDrop={setImage}
                         />
                         <div className="submit">
@@ -69,10 +69,10 @@ function Main(){
                     </Paper>
                 </div>
                 <div className="prawa">
-                    <Loader 
+                    <Loader
                         style={{display: loading ? '': 'none'}}
-                        type="TailSpin" 
-                        color="white" 
+                        type="TailSpin"
+                        color="white"
                         width="100"
                         height="100"
                         className="loader"
@@ -95,12 +95,12 @@ function Main(){
                                     </div>
                                 </Button>
                             </a>
-                        </Paper> 
+                        </Paper>
                     </div>
                 </div>
             </SplitPane>
         </div>
     );
 }
- 
+
 export default Main
