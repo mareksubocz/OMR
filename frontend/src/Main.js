@@ -72,7 +72,7 @@ function Main(){
                     <Loader
                         style={{display: loading ? '': 'none'}}
                         type="TailSpin"
-                        color="white"
+                        color="gray"
                         width="100"
                         height="100"
                         className="loader"
