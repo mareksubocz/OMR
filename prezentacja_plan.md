@@ -29,7 +29,12 @@
 
 ## Rezultaty
 * Przykład rezultatu zdjęcie -> plik
+* Dowód, że jesteśmy także wielogłosowi
+* Wrzucić przykład jak żałosna jest konkurencja ;)
 * Object detection: my vs świat
 
 
 ## Nadzieje na przyszłość
+* Własny dataset pod ten problem
+* Co uważamy że można by było osiągnąć z lepszymi GPU/TPU
+* Ulepszenie algorytmu metodami z NLP (?)
