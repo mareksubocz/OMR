@@ -2,28 +2,28 @@
 
 ## Przedstawienie problemu
 
-* Slajd tytułowy
+* ~~Slajd tytułowy
 * Czego dotyczy OMR (obrazki)
 * Obecny state-of-the-art
-* Wyzwania / trudności
-* Wymagania funkcjonalne
+* ~~Wyzwania / trudności
+* ~~Wymagania funkcjonalne
 
 ## Jak rozwiązać problem
 
 * Co trzeba zrobić od obrazka do MusicXMLa
 * Co było potrzebne w przygotowaniach
-* Podział zadań
-* Organizacja pracy
+* ~~Podział zadań~~
+* ~~Organizacja pracy~~
 
 ## Nasza implementacja
 
 * Obrazek wyjaśniający ogólny dataflow
 * Użyte technologie
-    * Preprocessing
+    * ~~Preprocessing
     * Object detection
-    * Munglinker
+    * ~~Munglinker
     * Mung2MusicXML
-    * Front
+    * ~~Front
     * Serwer
 * Obrazek wyjaśniający dataflow konkretnymi technologiami
 
